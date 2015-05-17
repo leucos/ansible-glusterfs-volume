@@ -1,0 +1,1 @@
+- include: glusterfs-volume.yml tags=glusterfs-volume,glusterfs
