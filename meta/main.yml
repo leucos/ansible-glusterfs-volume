@@ -1,12 +1,40 @@
 ---
-
-# file: {{ role_name }}/meta/main.yml
-
 galaxy_info:
-  author: your name
-  description: 
-  company: your company (optional)
-  license: license (GPLv2, CC-BY, etc)
-  min_ansible_version: 1.2
-dependencies: []
+  author: Michel Blanc
+  description: GLusterFS Volume Role
+  company: DevopsWorks
+  license: MIT
+  min_ansible_version: 1.9.2
+  #
+  # Below are all platforms currently available. Just uncomment
+  # the ones that apply to your role. If you don't see your 
+  # platform on this list, let us know and we'll get it added!
+  #
+  platforms:
+    - name: Ubuntu
+      versions:
+        - precise
+        - quantal
+        - raring
+        - saucy
+        - trusty
+    - name: Debian
+      versions:
+        - wheezy
+        - jessie
+  categories:
+    - clustering
+    - system
+
+dependencies:
+  - role: ansible-ferm
+    name: ansible-ferm
+    src: https://github.com/leucos/ansible-ferm.git
+    when: gluster_ferm_support
+    ferm_input_group_list:
+      - type: 'dport_accept'
+        dport: [ '49152', '49153', '49154', '49155' ]
+        saddr: '{{ play_hosts }}'
+        weight: '50'
+        filename: 'gluster_bricks_accept'
 
