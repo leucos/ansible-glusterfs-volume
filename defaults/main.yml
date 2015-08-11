@@ -1,2 +1,3 @@
 ---
 # defaults file for testrole
+gluster_bricks_dir: /var/lib/bricks

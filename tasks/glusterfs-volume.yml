@@ -6,7 +6,7 @@
   when: "inventory_hostname in gluster_servers[0]"
 
 - name: Creates brick directory
-  file: state=directory path=/var/lib/bricks/{{ gluster_brick_name }}
+  file: state=directory path={{ gluster_bricks_dir }}/{{ gluster_brick_name }}
 
 # Create gluster volume on first server
 - name: Create Gluster volume
