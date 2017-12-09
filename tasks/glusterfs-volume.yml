@@ -8,7 +8,7 @@
   gluster_volume:
     state: present
     name: "{{ item.name }}"
-    brick: "{{ item.brickdir }}"
+    bricks: "{{ item.brickdir }}"
     replicas: "{{ groups[gluster_servers_group] | length }}"
     cluster: "{{ groups[gluster_servers_group] | join('-' + gluster_interface + ',') }}"
     host: "{{ inventory_hostname }}"
