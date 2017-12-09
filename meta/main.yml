@@ -26,15 +26,4 @@ galaxy_info:
     - clustering
     - system
 
-dependencies:
-  - role: ansible-ferm
-    name: ansible-ferm
-    src: https://github.com/leucos/ansible-ferm.git
-    when: gluster_ferm_support
-    ferm_input_group_list:
-      - type: 'dport_accept'
-        dport: [ '49152', '49153', '49154', '49155' ]
-        saddr: '{{ play_hosts }}'
-        weight: '50'
-        filename: 'gluster_bricks_accept'
-
+dependencies: []
