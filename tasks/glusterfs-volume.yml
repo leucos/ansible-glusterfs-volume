@@ -1,7 +1,8 @@
 - name: Creates brick directory
   file:
     state: directory
-    path: "{{ gluster_bricks_dir }}/{{ gluster_brick_name }}"
+    path: "{{ item.brickdir }}"
+  with_items: gluster_volumes
 
 - name: Creates volumes
   gluster_volume:
