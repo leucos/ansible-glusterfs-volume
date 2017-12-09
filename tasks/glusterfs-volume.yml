@@ -2,7 +2,7 @@
   file:
     state: directory
     path: "{{ item.brickdir }}"
-  with_items: gluster_volumes
+  with_items: "{{ gluster_volumes }}"
 
 - name: Creates volumes
   gluster_volume:
@@ -14,4 +14,4 @@
     host: "{{ inventory_hostname }}"
     force: yes
   run_once: true
-  with_items: gluster_volumes
+  with_items: "{{ gluster_volumes }}"
