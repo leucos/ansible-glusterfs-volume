@@ -1,14 +1,14 @@
 - name: Creates brick directory
   file:
     state: directory
-    path: "{{ item.brickdir }}"
+    path: "{{ item.brick_dir }}"
   with_items: "{{ gluster_volumes }}"
 
 - name: Creates volumes
   gluster_volume:
     state: present
     name: "{{ item.name }}"
-    bricks: "{{ item.brickdir }}"
+    bricks: "{{ item.brick_dir }}"
     replicas: "{{ groups[gluster_servers_group] | length }}"
     cluster: "{{ groups[gluster_servers_group] | join('-' + gluster_interface + ',') }}"
     host: "{{ inventory_hostname }}"
