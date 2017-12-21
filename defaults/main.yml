@@ -3,4 +3,4 @@
 gluster_bricks_dir: /var/lib/bricks
 
 gluster_performance_cache_size: "32MB"
-gluster_nfs_disable: false
+gluster_nfs_disable: "Off" # off means nfs is NOT disabled...
