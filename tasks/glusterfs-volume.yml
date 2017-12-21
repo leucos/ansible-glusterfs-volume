@@ -15,6 +15,6 @@
     force: yes
     options:
       performance.cache-size: "{{ gluster_performance_cache_size }}"
-      nfs-disable: "{{ gluster_nfs_disable }}"
+      nfs.disable: "{{ gluster_nfs_disable }}"
   run_once: true
   with_items: "{{ gluster_volumes }}"
