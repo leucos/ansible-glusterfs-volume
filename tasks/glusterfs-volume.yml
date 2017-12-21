@@ -13,5 +13,8 @@
     cluster: "{{ groups[gluster_servers_group] | join('-' + gluster_interface + ',') }}"
     host: "{{ inventory_hostname }}"
     force: yes
+    options:
+      performance.cache-size: "{{ gluster_performance_cache_size }}"
+      nfs-disable: "{{ gluster_nfs_disable }}"
   run_once: true
   with_items: "{{ gluster_volumes }}"

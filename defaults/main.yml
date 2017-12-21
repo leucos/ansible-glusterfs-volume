@@ -1,3 +1,6 @@
 ---
 # defaults file for testrole
 gluster_bricks_dir: /var/lib/bricks
+
+gluster_performance_cache_size: "32MB"
+gluster_nfs_disable: false
